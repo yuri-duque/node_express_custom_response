@@ -24,7 +24,7 @@ export default function responseMiddleware(
     const body = {
       message,
       data,
-      error,
+      error: error?.message,
     };
     return buildResponse(response, STATUS.error, body);
   };
@@ -33,7 +33,7 @@ export default function responseMiddleware(
     const body = {
       message,
       data,
-      error,
+      error: error?.message,
     };
     return buildResponse(response, STATUS.badRequest, body);
   };
@@ -45,6 +45,7 @@ export default function responseMiddleware(
     };
     return buildResponse(response, STATUS.unauthorized, body);
   };
+
   next();
 }
 
