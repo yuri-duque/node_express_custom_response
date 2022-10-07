@@ -57,7 +57,11 @@ function buildResponse(response: Response, status: STATUS, body: any) {
 function log(status: STATUS, body: any) {
   const statusName = STATUS[status];
 
-  const logMessage = `[Response] - ${statusName}: ${JSON.stringify(body)}`;
+  const { message, error } = body;
+  const logMessage = `[Response] - ${statusName}: ${JSON.stringify({
+    message,
+    error,
+  })}`;
 
   if (status === STATUS.success) {
     console.log(logMessage);

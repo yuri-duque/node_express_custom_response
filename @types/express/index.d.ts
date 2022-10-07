@@ -16,7 +16,7 @@ declare global {
       /**
        * return response with status 400
        */
-      badRequest(message: string, data?: any): Response;
+      badRequest(message: string, data?: any, error?: Error): Response;
 
       /**
        * return response with status 401

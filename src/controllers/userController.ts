@@ -12,13 +12,13 @@ router.post(path, (request: Request, response: Response): void => {
 router.put(path, (request: Request, response: Response): void => {
   const { body } = request;
 
-  response.error('error', body);
+  response.error('my custom error message', body, new Error('my error'));
 });
 
 router.delete(path, (request: Request, response: Response): void => {
   const { body } = request;
 
-  response.badRequest('badRequest', body);
+  response.badRequest('my custom error message', body, new Error('my error'));
 });
 
 router.get(path, (request: Request, response: Response): void => {
